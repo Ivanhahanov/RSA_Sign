@@ -2,8 +2,8 @@ from config import *
 import sys
 key = RSA.generate(1024)
 
-if sys.argv[1] == 'hello':
-    message = 'hello'.encode()
+if len(sys.argv) > 1:
+    message = sys.argv[1].encode()
 else:
     message = input('Enter message: ').encode()
 

@@ -1,5 +1,5 @@
 from config import *
-
+import time
 key = RSA.generate(1024)
 
 with socket(AF_INET, SOCK_STREAM) as s:
@@ -14,7 +14,6 @@ with socket(AF_INET, SOCK_STREAM) as s:
         data = conn.recv(1024)
         mess = key.decrypt(data)
         print(mess)
-
         message_hash = sha256(mess).digest()
         signature, = key.sign(message_hash, '')
         new_mess, = c_key.encrypt(signature, 32)
