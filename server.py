@@ -1,5 +1,4 @@
 from config import *
-import time
 key = RSA.generate(1024)
 
 with socket(AF_INET, SOCK_STREAM) as s:
